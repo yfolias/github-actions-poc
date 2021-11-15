@@ -12,3 +12,6 @@ jobs:
     - name: List files in the repository
       run: |
         ls -la ${{ github.workspace }}
+    - name: testing if docker bin exists
+      run: |
+        which docker
