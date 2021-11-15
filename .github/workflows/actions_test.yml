@@ -20,10 +20,14 @@ jobs:
         # docker build -t $image .
         # docker push $image
         # docker image ls
-        
-    - name: Install Conan
-      id: conan
-      uses: turtlebrowser/get-conan@main
+        terraform -v
+    - uses: hashicorp/setup-terraform@v1  
+    - run: terraform -v
 
-    - name: Conan version
-      run: echo "${{ steps.conan.outputs.version }}"
+
+    # - name: Install Conan
+    #   id: conan
+    #   uses: turtlebrowser/get-conan@main
+
+    # - name: Conan version
+    #   run: echo "${{ steps.conan.outputs.version }}"
