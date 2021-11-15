@@ -4,6 +4,9 @@ jobs:
   testing-github-actions:
     runs-on: ubuntu-latest
     steps:
+    - uses: hashicorp/setup-terraform@v1
+      with:
+        terraform_version: 0.12.25
     - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
     - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
     - name: Check out repository code
@@ -21,10 +24,6 @@ jobs:
         # docker push $image
         # docker image ls
         terraform -v
-    - uses: hashicorp/setup-terraform@v1
-      with:
-        terraform_version: 0.12.25
-
     - run: terraform -v
     # - uses: hashicorp/setup-terraform@v1  
     # - run: terraform -v
