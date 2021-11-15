@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: hashicorp/setup-terraform@v1
+      id: tf
       with:
         terraform_version: 0.12.25
     - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -23,7 +24,7 @@ jobs:
         # docker build -t $image .
         # docker push $image
         # docker image ls
-    - run: echo "${{ steps.conan.outputs.version }}"
+    - run: echo "${{ steps.tf.outputs.version }}"
     # - uses: hashicorp/setup-terraform@v1  
     # - run: terraform -v
 
