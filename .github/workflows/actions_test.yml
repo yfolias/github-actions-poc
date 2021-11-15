@@ -12,6 +12,10 @@ jobs:
     - name: List files in the repository
       run: |
         ls -la ${{ github.workspace }}
+    - uses: actions/docker/login@master
+      with: # Set the secret as an input
+        DOCKER_USERNAME: ${{ secrets.HUB_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.HUB_PASSWORD }}
     - name: testing if docker bin exists
       run: |
         docker build -t yfoliascp/actios-poc:1 .
