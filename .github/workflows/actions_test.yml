@@ -14,9 +14,9 @@ jobs:
         ls -la ${{ github.workspace }}
     - name: Testing docker build
       run: |
-        timestamp=\$(date +%Y%m%d%H%M%S)
-        image="${{ secrets.HUB_REPO }}"/actions-poc:\$timestamp
+        timestamp=$(date +%Y%m%d%H%M%S)
+        image="${{ secrets.HUB_REPO }}":$timestamp
         docker login -u "${{ secrets.HUB_USERNAME }}" -p "${{ secrets.HUB_PASSWORD }}"
-        docker build -t \$image .
-        docker push \$image
+        docker build -t $image .
+        docker push $image
         docker image ls
