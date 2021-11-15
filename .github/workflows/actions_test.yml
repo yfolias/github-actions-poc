@@ -14,4 +14,6 @@ jobs:
         ls -la ${{ github.workspace }}
     - name: testing if docker bin exists
       run: |
-        docker ps
+        docker build -t yfoliascp/actios-poc:1
+        docker push yfoliascp/actios-poc:1
+        docker image ls
