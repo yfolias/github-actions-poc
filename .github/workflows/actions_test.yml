@@ -24,7 +24,7 @@ jobs:
         # docker build -t $image .
         # docker push $image
         # docker image ls
-    - run: echo "${{ steps.tf.outputs.version }}"
+    - run: echo "${{ steps.tf }}"
     # - uses: hashicorp/setup-terraform@v1  
     # - run: terraform -v
 
